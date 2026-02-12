@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Saya</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Header & Navigation */
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      nav a:hover {
+        opacity: 0.8;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 8rem 2rem 4rem;
+        text-align: center;
+        margin-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background: white;
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Sections */
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #667eea;
+      }
+
+      /* About Section */
+      .about-content {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .profile-img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 4rem;
+        margin: 0 auto;
+      }
+
+      .about-text {
+        flex: 2;
+      }
+
+      .about-text p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      /* Skills Section */
+      .skills {
+        background: #f8f9fa;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .skill-card h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+      }
+
+      .skill-bar {
+        background: #e0e0e0;
+        height: 10px;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+        overflow: hidden;
+      }
+
+      .skill-progress {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        height: 100%;
+        border-radius: 5px;
+        transition: width 1s ease;
+      }
+
+      /* Projects Section */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-content h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-content p {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        background: #f8f9fa;
+      }
+
+      .contact-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      /* Footer */
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        nav ul {
+          gap: 1rem;
+        }
+
+        .skills-grid,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo">Portofolio</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#skills">Keahlian</a></li>
+          <li><a href="#projects">Proyek</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <h1>Halo, Saya Farel</h1>
+      <p>Backend Developer</p>
+      <a href="#contact" class="btn">Hubungi Saya</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>Tentang Saya</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <div class="profile-img">👤</div>
+        </div>
+        <div class="about-text">
+          <p>
+            Halo! Saya adalah seorang backend developer yang passionate dalam
+            menciptakan pengalaman digital yang menarik dan fungsional.
+          </p>
+          <p>
+            Dengan pengalaman dalam PHP, MySQL, dan framework backend lainnya,
+            saya selalu berusaha untuk terus belajar dan mengembangkan
+            keterampilan saya dalam dunia teknologi yang terus berkembang.
+          </p>
+          <p>
+            Saya senang bekerja dalam tim dan selalu terbuka untuk proyek-proyek
+            baru yang menantang.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <h2>Keahlian Saya</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>PHP</h3>
+          <p>Mengembangkan backend aplikasi web dengan PHP</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>MySQL</h3>
+          <p>Mengelola dan mengoptimalkan database MySQL</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 75%"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>API</h3>
+          <p>Membuat dan mengelola API yang efisien dan aman</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Git & GitHub</h3>
+          <p>
+            Mengelola versi kode dan kolaborasi dalam tim menggunakan Git dan
+            GitHub
+          </p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 70%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Proyek Saya</h2>
+      <div class="projects-grid">
+        <div
+          class="project-card"
+          onclick="
+            window.location.href = 'https://github.com/FathirThoriq/CodePlay'
+          "
+        >
+          <div class="project-image">📱</div>
+          <div class="project-content">
+            <h3>Codeplay Mobile Application</h3>
+            <p>
+              Aplikasi pembelajaran coding interaktif untuk pemula dengan
+              berbagai bahasa pemrograman.
+            </p>
+          </div>
+        </div>
+        <div
+          class="project-card"
+          onclick="window.location.href = 'https://github.com/ArthurCim/HIWEB'"
+        >
+          <div class="project-image">🌐</div>
+          <div class="project-content">
+            <h3>Codeplay Website</h3>
+            <p>
+              Website resmi Codeplay untuk menyediakan informasi, paket
+              langganan, dan tempat seorang admin untuk mengelola kursus
+            </p>
+          </div>
+        </div>
+        <div
+          class="project-card"
+          onclick="
+            window.location.href = 'https://github.com/farelmh/codeplay-api'
+          "
+        >
+          <div class="project-image">⚙️</div>
+          <div class="project-content">
+            <h3>Java Spring Boot Rest API</h3>
+            <p>
+              API yang dibangun dengan Java Spring Boot untuk mendukung aplikasi
+              mobile dengan fitur autentikasi dan manajemen data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2>Hubungi Saya</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <strong>Email</strong><br />
+              farelmh01@gmail.com
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <strong>Telepon</strong><br />
+              +62 813-5805-0683
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>Lokasi</strong><br />
+              Jember, Jawa Timur, Indonesia
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 farelmh. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
